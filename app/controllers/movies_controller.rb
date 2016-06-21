@@ -13,7 +13,6 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-   
     if @movie.save
       redirect_to movies_path
     else
@@ -43,7 +42,8 @@ class MoviesController < ApplicationController
   protected
   
   def movie_params
-    params.require(:movie).permit(:title, :director, :runtime_in_minutes, :description, :poster_image_url) end
+    params.require(:movie).permit(:title, :director, :runtime_in_minutes, :description, :poster_image_url, :release_date)
+  end
 
  
 end

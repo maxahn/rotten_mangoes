@@ -1,3 +1,11 @@
+<%if @movie.errors.full_messages%>
+  <ul>
+    <%@movie.errors.full_messages.each do |error|%>
+      <li><%=error%></li>
+    <%end%>
+  </ul>
+<%end%>
+    
 <%=form_for @movie do |f|%>
   <div>
     <%=f.label 'title'%><br>
