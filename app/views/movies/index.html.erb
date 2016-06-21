@@ -1,4 +1,5 @@
 <h2>Movies</h2>
+<p><%=link_to "Create new movie post", new_movie_path%></p>
 <%@movies.each do |movie|%>
   <div>
     <h3><a href=<%=movie_path(movie.id)%>><%=movie.title%></a></h3>
