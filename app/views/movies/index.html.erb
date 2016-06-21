@@ -1,0 +1,8 @@
+<h2>Movies</h2>
+<%@movies.each do |movie|%>
+  <div>
+    <h3><a href=<%=movie_path(movie.id)%>><%=movie.title%></a></h3>
+    <p><small><%movie.director%></small></p>
+    <hr>
+  </div>
+<%end%>
