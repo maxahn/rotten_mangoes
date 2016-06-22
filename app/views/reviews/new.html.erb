@@ -1,9 +1,9 @@
 <%=link_to "Back to Movie", movie_path(@movie)%><br>
-
+  
 <h2>Write a review of <em><%=@movie.title%></em></h2>
 
 <%=form_for([@movie,@review]) do |f|%>
-  <%if @review.errors.any?%>
+  <%if @review.errors.any?%> 
     <div>
       <%=pluralize(@review.errors.count, 'error')%> prevented review form being saved:
       <ul>
