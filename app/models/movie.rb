@@ -3,12 +3,13 @@ class Movie < ActiveRecord::Base
   validates :director, presence: true
   validates :runtime_in_minutes, presence: true, numericality: {only_integer: true}
   validates :description, presence: true
-  validates :poster_image_url, presence: true
+  #validates :poster_image_url, presence: true
   validates :release_date, presence: true
   validate :release_date_is_in_the_past
 
   has_many :reviews
 
+  mount_uploader :image, AvatarUploader  
   def review_average
    reviews.length.zero? ? nil : reviews.sum(:rating_out_of_ten)/reviews.size 
   end
