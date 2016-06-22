@@ -6,7 +6,12 @@
   <p>Length: <%=@movie.runtime_in_minutes%> mins</p>
   <p>Description: <%=@movie.description%></p><br>
   <img href=<%=@movie.poster_image_url%>/>
-  <p>Release Date: <%=@movie.release_date%></p> 
+  <p>Release Date: <%=formatted_date(@movie.release_date)%></p> 
+  <%if @movie.review_average%>
+    <%=@movie.review_average%>/10
+  <%else%>
+    <%="No reviews yet"%>
+  <%end%>
 </div>
 
 <hr>
@@ -17,7 +22,7 @@
     <%@movie.reviews.each do |review|%>
       <p><%=review.text%></p>
       <p><%=review.rating_out_of_ten%>/10</p>
-      <small>- <%= review.user.email%></small><br/>
+      <small>- <%= review.user.full_name%></small><br/>
     <%end%>
     <p><%= link_to "Write a review!", new_movie_review_path(@movie)%>.</p>
   <%else%>
