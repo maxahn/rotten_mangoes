@@ -14,6 +14,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def admin_access_check 
+    unless current_user.is_admin?
+      flash[:error] = "You must be an admin to access this page"
+      redirect_to movies_path 
+    end
+  end
   protected 
 
   def user_params

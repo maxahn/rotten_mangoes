@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   validates :email, presence: true
   validates :firstname, presence: true
   validates :lastname, presence: true
@@ -10,4 +11,7 @@ class User < ActiveRecord::Base
   def full_name
     "#{firstname} #{lastname}"
   end
+
+  protected
+
 end
