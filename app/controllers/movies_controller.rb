@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
                else
                  nil
                end
-    binding.pry
+
     @movies = @movies.where(duration) if duration
   end
 
