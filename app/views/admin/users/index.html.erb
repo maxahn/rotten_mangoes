@@ -1,5 +1,5 @@
 <h1>USERS</h1>
-
+<%=paginate @users%>
 <% if @users %>
   <table border='1' style='width:100%'>
     <th>ID</th>
@@ -8,6 +8,7 @@
     <th>Last Name</th>
     <th>Profile</th>
   <% @users.each do |user| %>
+  
     <tr>
       <td><%=user.id%></td> 
       <td><%=user.email%></td>
