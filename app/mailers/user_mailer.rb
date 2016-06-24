@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
   
   def user_destroyed_email(user)
     @user = user
-    #@url = user_path
+    #@url = '/admin/users/:id' 
     mail(to: @user.email, subject: 'Account was deleted')
   end
 end
