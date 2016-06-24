@@ -18,6 +18,15 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      UserMailer.user_destroyed_email(@user).deliver_now
+      flash[:notice] = 'Account was destroyed' 
+      redirect_to admin_users_path 
+    else
+      flash[:notice] = 'Account was not destroyed'
+      redirect_to admin_user(@user)
+    end
   end
 
   def edit

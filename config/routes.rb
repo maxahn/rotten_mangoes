@@ -1,32 +1,13 @@
 Rails.application.routes.draw do
-  namespace :admin do
-  get 'users/index'
-  end
-
-  namespace :admin do
-  get 'users/show'
-  end
-
-  namespace :admin do
-  get 'users/create'
-  end
-
-  namespace :admin do
-  get 'users/update'
-  end
-
-  namespace :admin do
-  get 'users/new'
-  end
-
-  namespace :admin do
-  get 'users/destroy'
-  end
-
-  namespace :admin do
-  get 'users/edit'
-  end
-
+# namespace :admin do
+#   get 'users/index'
+#   get 'users/show'
+#   get 'users/create'
+#   get 'users/update'
+#   get 'users/new'
+#   get 'users/destroy'
+#   get 'users/edit'
+# end
   get 'reviews/new'
   get 'reviews/create'
 
