@@ -14,6 +14,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def show 
+    @user = User.find(current_user.id)
+  end
   protected 
 
   def user_params
