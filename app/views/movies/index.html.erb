@@ -1,7 +1,5 @@
 <div class='row'>
     <h1 class=>Movies</h1>
-    <p><%=link_to "Sign Up", new_user_path unless current_user%></p>
-
     <%=render 'search_form'%>
     <%@movies.each do |movie|%>
       <div>
