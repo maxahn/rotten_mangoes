@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to movies_path, notice: "#{user.firstname} has successfully logged in!"
     else
+      flash[:error] = 'Email and password do not match.' 
       render :new
     end
   end

@@ -1,14 +1,19 @@
-<%=form_tag movies_path, method: 'GET' do %>
-  <%= text_field_tag :title_query, nil, placeholder: 'Search movie title'%><br> 
-  <%= text_field_tag :director_query, nil, placeholder: 'Search director name'%><br>
-  
-  
-  <%= select_tag 'runtime',
-    "<option value=nil>Select runtime</option>
-    <option value = 'less than 90'>Under 90 mins</option>
-    <option value = 'between 90 & 120'>Between 90 and 120 mins</option>
-    <option value = 'greater than 120'>Over 120 mins</option>".html_safe, :id => 'runtime'%>
-  <%=submit_tag 'Search'%>
+<div>
+  <hr>
+  <%=form_tag movies_path, method: 'GET' do %>
+    <%= text_field_tag :title_query, nil, placeholder: 'Search movie title'%><br> 
+    <%= text_field_tag :director_query, nil, placeholder: 'Search director name'%><br>
+    
+    
+    <%= select_tag 'runtime',
+      "<option value=nil>Select runtime</option>
+      <option value = 'less than 90'>Under 90 mins</option>
+      <option value = 'between 90 & 120'>Between 90 and 120 mins</option>
+      <option value = 'greater than 120'>Over 120 mins</option>".html_safe, :id => 'runtime'%>
+    <%=button_tag(type:'submit', class: 'btn btn-primary') do%>
+      <i class='icon-ok icon-white'></i> Search
+    <%end%>
 
-<%end%>
-
+  <%end%>
+  <hr>
+</div>

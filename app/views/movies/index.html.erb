@@ -1,10 +1,8 @@
 <div class='row'>
-  <div class='col-md-6 col-md-offset-3'>
-    <h2>Movies</h2>
+    <h1 class=>Movies</h1>
     <p><%=link_to "Sign Up", new_user_path unless current_user%></p>
-    <p><%=link_to "Create new movie post", new_movie_path if current_user%></p>
 
-    <%= render 'search_form' %>
+    <%=render 'search_form'%>
     <%@movies.each do |movie|%>
       <div>
         <h3><a href=<%=movie_path(movie.id)%>><%=movie.title%></a></h3>
@@ -17,5 +15,4 @@
         <hr>
       </div>
     <%end%>
-  </div>
 </div>
