@@ -22,5 +22,10 @@
     <%=f.label :rating_out_ten%><br>
     <%=f.number_field :rating_out_of_ten %>
   </div>
-  <div><%=f.submit "Submit"%></div>
+  <div>
+    <br>
+    <%=button_tag(type:'submit', class: 'btn btn-primary') do%>
+      <i class='icon-ok icon-white'></i> Search
+    <%end%>
+  </div>
 <%end%>   

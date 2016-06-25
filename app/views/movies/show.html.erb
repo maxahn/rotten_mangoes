@@ -2,11 +2,16 @@
   <p><%=link_to "Back to movies", movies_path%></p>
 
   <h2><%=@movie.title%>(<%=link_to"edit", edit_movie_path(@movie)%>)(<%=link_to "delete", movie_path(@movie), :method => :delete, :'data-confirm' => "You sure?"%>)</h2>
-  <p><small><%=@movie.director%></small></p>
+  <p><small>Director: <%=@movie.director%></small></p>
+  <%if @movie.poster_image_url%>
+    <img src=<%=@movie.poster_image_url%>/>
+  <%else%>
+    <%=image_tag @movie.image.url%> <p>Release Date: <%=formatted_date(@movie.release_date)%></p> <!--TODO: limit photo size--> 
+  <%end%> 
   <p>Length: <%=@movie.runtime_in_minutes%> mins</p>
-  <p>Description: <%=@movie.description%></p><br>
-  <%=image_tag @movie.image.url%> <p>Release Date: <%=formatted_date(@movie.release_date)%></p> 
-  <%if @movie.review_average%> <%=@movie.review_average%>/10
+  <p>Description: <%=@movie.description%></p>
+  <%if @movie.review_average%> 
+    <h3>Rating: <%=@movie.review_average%>/10</h3>
   <%else%>
     <%="No reviews yet"%>
   <%end%>
@@ -21,8 +26,9 @@
       <p><%=review.text%></p>
       <p><%=review.rating_out_of_ten%>/10</p>
       <small>- <%= review.user.full_name%></small><br/>
+      <br>
     <%end%>
-    <p><%= link_to "Write a review!", new_movie_review_path(@movie)%>.</p>
+    <p><%=link_to "Write a review!", new_movie_review_path(@movie)%></p>
   <%else%>
     <p>Please <%=link_to "log in", new_session_path%> to see reviews and add your own.</p>
   <%end%>
