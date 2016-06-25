@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController 
   def index 
-    @movies = Movie.by_title(params[:title_query]).by_director(params[:director_query]).by_duration(params[:runtime])
+    #@movies = Movie.by_title(params[:title_query]).by_director(params[:director_query]).by_duration(params[:runtime])
+    @movies = Movie.all
+    @movies = @movies.where("title LIKE ? OR director LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%") if params[:query]
   end
 
   def show
