@@ -1,16 +1,5 @@
 <div class='row'>
     <h1 class=>Movies</h1>
     <%=render 'search_form'%>
-    <%@movies.each do |movie|%>
-      <div>
-        <h3><a href=<%=movie_path(movie.id)%>><%=movie.title%></a></h3>
-        <p><small><%movie.director%></small></p>
-      <%if movie.review_average%>
-        <%=movie.review_average%>/10
-      <%else%>
-        <%="No reviews yet"%>
-      <%end%>
-        <hr>
-      </div>
-    <%end%>
+    <%=render 'movie'%>
 </div>
