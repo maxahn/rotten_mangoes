@@ -1,3 +1,13 @@
 <h1><%=@user.full_name%></h1>
 <p>Email: <%=@user.email%></p>
 <p>Joined at: <%=@user.created_at%></p> 
+<hr>
+<h2>My Reviews</h2>
+<hr>
+<%@user.reviews.each do |review|%>
+  <h4><%=link_to review.movie.title, movie_path(review.movie)%></h4>
+  <p><%=review.text%></p>
+  <p><%=review.rating_out_of_ten%>/10</p>
+  <small>- <%=@user.full_name%></small><br/>
+  <hr>
+<%end%>
