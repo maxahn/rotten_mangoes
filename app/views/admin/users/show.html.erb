@@ -1,0 +1,7 @@
+<h1>Admin</h1>
+<h2><%=@user.full_name%>(<%=link_to 'edit',edit_admin_user_url%>)(<%=link_to 'delete', "/admin/users/#{@user.id}", :method => :delete, :'data-confirm' => 'You sure?' %>)</h2>
+<p>Email: <%=@user.email%></p>
+<p>Join Date: <%=@user.created_at%></p>
+<p>Last Edited: <%=@user.updated_at%></p>
+
+

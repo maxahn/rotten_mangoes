@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController 
   def index 
-    @movies = Movie.all
+    @movies = Movie.by_title(params[:title_query]).by_director(params[:director_query]).by_duration(params[:runtime])
   end
 
   def show
@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
   protected
   
   def movie_params
-    params.require(:movie).permit(:title, :director, :runtime_in_minutes, :description, :poster_image_url, :release_date)
+    params.require(:movie).permit(:title, :director, :runtime_in_minutes, :description, :poster_image_url, :release_date, :image)
   end
  
 end

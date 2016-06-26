@@ -6,27 +6,33 @@
   </div>
 <%end%> 
 <%=form_for @user do |f|%>
-  <div>
-    <%=f.label 'firstname'%><br>
-    <%=f.text_field 'firstname'%>
-  </div>
-  <div>
-    <%=f.label 'lastname'%><br>
-    <%=f.text_field 'lastname'%>
-  </div>
-  <div>
-    <%=f.label 'email'%><br>
-    <%=f.text_field 'email'%>
-  </div>
-  <div>
-    <%=f.label 'password'%><br>
-    <%=f.password_field 'password'%>
-  </div>
-  <div>
-    <%=f.label 'password_confirmation'%><br>
-    <%=f.password_field 'password_confirmation'%>
-  </div>
-  <div>
-    <%=f.submit 'Submit'%>
+  <div class='form-group'>
+    <div>
+      <%=f.label 'firstname'%><br>
+      <%=f.text_field 'firstname'%>
+    </div>
+    <div>
+      <%=f.label 'lastname'%><br>
+      <%=f.text_field 'lastname'%>
+    </div>
+    <div>
+      <%=f.label 'email'%><br>
+      <%=f.text_field 'email'%>
+    </div>
+    <div>
+      <%=f.label 'password'%><br>
+      <%=f.password_field 'password'%>
+    </div>
+    <div>
+      <%=f.label 'password_confirmation'%><br>
+      <%=f.password_field 'password_confirmation'%>
+    </div>
+    <hr>
+    <div>
+        <%=button_tag(type: 'submit', class: 'btn btn-primary') do%>
+            <i class='icon-ok icon-white'></i>
+            Submit
+        <%end%>
+    </div>
   </div>
 <%end%>

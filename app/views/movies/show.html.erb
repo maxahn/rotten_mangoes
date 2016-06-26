@@ -5,10 +5,8 @@
   <p><small><%=@movie.director%></small></p>
   <p>Length: <%=@movie.runtime_in_minutes%> mins</p>
   <p>Description: <%=@movie.description%></p><br>
-  <img href=<%=@movie.poster_image_url%>/>
-  <p>Release Date: <%=formatted_date(@movie.release_date)%></p> 
-  <%if @movie.review_average%>
-    <%=@movie.review_average%>/10
+  <%=image_tag @movie.image.url%> <p>Release Date: <%=formatted_date(@movie.release_date)%></p> 
+  <%if @movie.review_average%> <%=@movie.review_average%>/10
   <%else%>
     <%="No reviews yet"%>
   <%end%>

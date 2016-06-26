@@ -1,15 +1,16 @@
-<h2>Movies</h2>
-<p><%=link_to "Sign Up", new_user_path unless current_user%></p>
-<p><%=link_to "Create new movie post", new_movie_path if current_user%></p>
-<%@movies.each do |movie|%>
-  <div>
-    <h3><a href=<%=movie_path(movie.id)%>><%=movie.title%></a></h3>
-    <p><small><%movie.director%></small></p>
-  <%if movie.review_average%>
-    <%=movie.review_average%>/10
-  <%else%>
-    <%="No reviews yet"%>
-  <%end%>
-    <hr>
-  </div>
-<%end%>
+<div class='row'>
+    <h1 class=>Movies</h1>
+    <%=render 'search_form'%>
+    <%@movies.each do |movie|%>
+      <div>
+        <h3><a href=<%=movie_path(movie.id)%>><%=movie.title%></a></h3>
+        <p><small><%movie.director%></small></p>
+      <%if movie.review_average%>
+        <%=movie.review_average%>/10
+      <%else%>
+        <%="No reviews yet"%>
+      <%end%>
+        <hr>
+      </div>
+    <%end%>
+</div>
